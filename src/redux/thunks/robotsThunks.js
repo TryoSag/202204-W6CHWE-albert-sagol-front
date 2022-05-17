@@ -2,11 +2,11 @@ import axios from "axios";
 import { loadRobotsActionCreator } from "../features/robotsSlice";
 
 export const loadRobotsThunk = () => async (dispatch) => {
-  const { data: robots } = await axios.get(`${process.env.API_STRING}/robots`, {
+  const response = await axios.get(`${process.env.REACT_APP_API}/robots`, {
     headers: {
-      authorization: `Bearer ${process.env.TOKEN_STRING}`,
+      authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
     },
   });
 
-  dispatch(loadRobotsActionCreator(robots));
+  dispatch(loadRobotsActionCreator(response.data.robots));
 };
