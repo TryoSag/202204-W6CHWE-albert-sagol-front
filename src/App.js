@@ -6,6 +6,7 @@ import { loadRobotsThunk } from "./redux/thunks/robotsThunks";
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(loadRobotsThunk());
   }, [dispatch]);
